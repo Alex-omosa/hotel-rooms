@@ -1,13 +1,23 @@
 import React from "react";
-
-// import "./App.css";
+import Home from "./pages/Home";
+import Rooms from "./pages/Rooms";
+import ErrorPage from "./pages/ErrorPage";
+import SingleRoom from "./pages/SingleRoom";
+import "./App.css";
+import Navbar from "./Components/Navbar";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <h1>Hello</h1>
-      <h2>World</h2>
-    </div>
+    <React.Fragment>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/rooms" component={Rooms} />
+        <Route exact path="/rooms/${slug}" component={SingleRoom} />
+        <Route component={ErrorPage} />
+      </Switch>
+    </React.Fragment>
   );
 }
 
